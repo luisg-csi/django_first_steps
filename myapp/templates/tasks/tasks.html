@@ -1,0 +1,28 @@
+
+    {% extends 'layouts/base.html' %}
+    {% block content %}
+
+    <h1>Tasks</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam ratione ut reiciendis amet explicabo sunt quod illo quas quis ad, unde obcaecati sequi nesciunt harum, libero inventore quaerat autem molestias. Quam error molestiae eaque aut?</p>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda voluptatum soluta iste doloribus expedita tempore. Corporis iste ut nam at, ad facere non adipisci dolorum architecto harum quis temporibus enim, dignissimos illum nobis necessitatibus deleniti?</p>
+
+
+    {# Todo: continue learning #}
+    <!--Comentario visible-->
+    {% for elem in tasks %}
+        <article>
+            <h3>{{elem.title}}  </h3>
+            {% if elem.done == False %}
+                <p>⏱ Tarea pendiente  </p>
+            {% else %}    
+                <p>✅ Tarea realizada  </p>
+            {% endif %}
+            
+            <p>{{elem.description}} </p>
+            <p>{{elem.proyect.name}}</p>
+            <button>❌ Delete</button>
+            <button>✅ Done</button>
+        </article>
+    
+    {% endfor %}
+    {% endblock %}
