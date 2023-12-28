@@ -11,6 +11,10 @@ urlpatterns = [
     path('proyects/', views.proyects, name='proyects'),
     path('tasks/', views.tasks, name='tasks'),
     path('create_tasks/', views.create_task, name='create_task'),
-    path('create_proyects/', views.create_proyect, name='create_proyect')
-    #path('tasks/<int:id>', views.tasks),
+    path('create_proyects/', views.create_proyect, name='create_proyect'),
+    
+    path('signup/', views.signup, name='signup'),
+    path('home/', views.home, name='home'),
+    path('logout/', views.signout, name='signout'),
+    path('signin/', views.signin, name='signin'),
 ]

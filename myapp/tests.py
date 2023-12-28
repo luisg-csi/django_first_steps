@@ -1,3 +1,3 @@
 from django.test import TestCase
 
-# Create your tests here.
+# Define tu clase de prueba que hereda de TestCase

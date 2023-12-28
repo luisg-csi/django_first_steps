@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Proyect</title>
+    <title>Django Project</title>
     <link rel="stylesheet" href="{% static '/styles/main.css' %}">
 </head>
 <body>
@@ -28,6 +28,19 @@
             <li>
                 <a href="{% url 'about' %}" >About</a>
             </li>
+            
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="/logout" >Logout</a>
+                </li>   
+            {% else %}
+            <li>
+                <a href="{% url 'signup' %}" >Signup</a>
+            </li>
+            <li>
+                <a href="{% url 'signin' %}" >Signin</a>
+            </li>
+            {% endif %}
         </ul>
     </nav>
     <main class="container">
