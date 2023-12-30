@@ -9,19 +9,25 @@
 
     {# Todo: continue learning #}
     <!--Comentario visible-->
-    {% for elem in tasks %}
+    {% for task in tasks %}
         <article>
-            <h3>{{elem.title}}  </h3>
-            {% if elem.done == False %}
-                <p>⏱ Tarea pendiente  </p>
-            {% else %}    
-                <p>✅ Tarea realizada  </p>
-            {% endif %}
-            
-            <p>{{elem.description}} </p>
-            <p>{{elem.proyect.name}}</p>
-            <button>❌ Delete</button>
-            <button>✅ Done</button>
+            <a href="{% url 'task_detail' task.id %}">
+                {% if task.important %}
+                <strong>{{task.title}}  </strong>
+                {% else %}
+                <h4>{{task.title}}  </h4>
+                {% endif %}
+                {% if task.done == False %}
+                    <p>⏱ Tarea pendiente  </p>
+                {% else %}
+                    <p>✅ Tarea realizada  </p>
+                {% endif %}
+                <p>{{task.description}} </p>
+                <p>{{task.user.username}} </p>
+                <p>{{task.proyect.name}}</p>
+                <button>❌ Delete</button>
+                <button>✅ Done</button>
+            </a>
         </article>
     
     {% endfor %}
